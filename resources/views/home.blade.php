@@ -8,7 +8,7 @@
             <div class="card-header">
                 Menu List
                 @if (Auth::user()->posisi == 'pelayan')
-                <a href="{{url('/orders')}}" class="btn btn-warning float-right addItems">
+                <a href="{{url('/order_transaction')}}" class="btn btn-warning float-right addItems">
                     Lets Order !
                 </a>
             @endif
