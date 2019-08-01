@@ -1,0 +1,30 @@
+.form-menu{
+    display: none;
+    margin-top: 10px;
+}
+
+.sidebar{
+    height: 100%;
+    width: 300px;
+    background-color: #fff;
+    left: 0;
+    position: fixed;
+    margin-top: -19.6px;
+    box-shadow: 0.5px 0.5px 3px 0.5px #ccc;
+}
+
+ul a{
+    text-decoration: none;
+}
+
+li:hover{
+    background-color: orangered;
+    color: #fff;
+}
+
+.tot {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+  }
