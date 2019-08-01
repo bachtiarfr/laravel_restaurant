@@ -177,12 +177,6 @@ class OrdersController extends Controller
 
     public function payment($id)
     {
-        // $detail = DB::table('detail_orders')
-        //     ->join('orders', 'detail_orders.order_id', '=', 'orders.id')
-        //     ->join('items', 'detail_orders.item_id', '=', 'items.id')
-        //     ->where('detail_orders.order_id', $order)
-        //     ->get();
-
         $order = Order::find($id);
 
         $total = DetailOrders::where('order_id', $order->id)->selectRaw('SUM((price * qty)) AS total')->first();

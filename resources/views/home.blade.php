@@ -30,7 +30,7 @@
                             @endif
                             </h5>
                             
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <img class="col md-6" src="{{url('product/'.$item->image)}}" style="width: 200px" alt="{{$item->image}}">
                             <p>Rp. {{$item->price}} ,-</p>
                         </div>
                         </div>

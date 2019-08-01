@@ -22,7 +22,9 @@
               
           <tr>
             <td>{{$item->name}}</td>
-            <td>{{$item->image}}</td>
+            <td>
+                <img src="{{url('product/'.$item->image)}}" style="width: 200px" alt="{{$item->image}}">
+              </td>
             <td>{{$item->price}}</td>
             <td>{{$item->categorie}}</td>
             <td>{{$item->status}}</td>
