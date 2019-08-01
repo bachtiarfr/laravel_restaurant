@@ -81,11 +81,13 @@ class OrdersController extends Controller
             $detail->qty = $cart->qty;
             $detail->save();
         }
+        //hapus cart yang udah diorder di db
         $oldCart = Cart::where('user_id', $user->id);
         $oldCart->delete();
+
         Log::Log_activity('Menambahkan Pesanan ' . $order->item_name);
+
         Session::flash("success", "pesanan telah diproses, silahkan menunggu");
-        Session::flash("error", "masukan meja");
         return redirect('/order_transaction');
     }
 
@@ -122,15 +124,15 @@ class OrdersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'pay' => 'required|integer',
+        ]);
         $order = Order::find($id);
-        $detail = DetailOrders::where('order_id', $order);
+        $order->status = "tidak aktif";
+        $order->save();
 
-        $detail->order_id = $order;
-        $detail->item_id = $request->input('id');
-        $detail->price = $request->input('price');
-        $detail->qty = $request->input('qty');
+        Log::desc('menerima pembayaran order '  . $order->order_number);
 
-        $detail->save();
         return back();
     }
 
@@ -175,7 +177,23 @@ class OrdersController extends Controller
 
     public function payment($id)
     {
+        // $detail = DB::table('detail_orders')
+        //     ->join('orders', 'detail_orders.order_id', '=', 'orders.id')
+        //     ->join('items', 'detail_orders.item_id', '=', 'items.id')
+        //     ->where('detail_orders.order_id', $order)
+        //     ->get();
+
         $order = Order::find($id);
-        return view('Payment', compact('order'));
+
+        $total = DetailOrders::where('order_id', $order->id)->selectRaw('SUM((price * qty)) AS total')->first();
+        return view('Payment', compact('order', 'total'));
+    }
+
+    public function payed($id)
+    {
+        $order = Order::where('id', $id)->first();
+        $order->delete();
+
+        return redirect()->to('/orders');
     }
 }

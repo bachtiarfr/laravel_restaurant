@@ -39,6 +39,7 @@ Route::put('/items/update/{id}', 'ItemsController@update');
 Route::get('/items/delete/{id}', 'ItemsController@destroy');
 
 Route::get('/pay/{id}', 'OrdersController@payment')->name('order.payment');
+Route::get('/payed/{id}', 'OrdersController@payed')->name('order.payed');
 
 Route::post('/cart/add', 'CartController@store');
 Route::get('/api_orders', 'OrdersController@api');

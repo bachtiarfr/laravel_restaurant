@@ -27,9 +27,7 @@
             <td>{{$item->categorie}}</td>
             <td>{{$item->status}}</td>
             <td>
-                <a href="#" class="btn btn-success">
-                    <i class="fa fa-eye"></i>
-                </a>
+                
                 <a href="{{url('/items/edit',$item->id)}}" class="btn btn-warning">
                     <i class="fa fa-edit"></i>
                     

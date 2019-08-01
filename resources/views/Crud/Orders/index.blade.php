@@ -34,16 +34,21 @@
             </td>
             <td>
               @if (Auth::user()->posisi == 'pelayan')
-              <a href="#" class="btn btn-primary">
-                  <i class="fa fa-folder-open"></i>
+              <a href="{{url('/orders/edit',$order->id)}}" class="btn btn-primary">
+                <i class="fa fa-edit">edit</i>
               </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fa fa-folder-open">cetak</i>
+                    </a>
               @else
               <a href="{{url('/orders/edit',$order->id)}}" class="btn btn-primary">
-                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-edit">edit</i>
               </a>
-              
               <a href="{{url('/pay', $order->id)}}" class="btn btn-success">
-                  <i class="fa fa-money"></i>
+                  <i class="fa fa-money">bayar</i>
+              </a>
+              <a href="{{url('/orders/delete', $order->id)}}" class="btn btn-danger">
+                  <i class="fa fa-close">tutup pesanan</i>
               </a>
               
               
