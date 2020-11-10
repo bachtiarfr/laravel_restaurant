@@ -10,7 +10,7 @@
                     New Menu
                     
                 </div>
-
+ 
                 <div class="card-body">
                         <form action="{{url('/items/add')}}" method="post" class="needs-validation" enctype="multipart/form-data" >
                             @csrf

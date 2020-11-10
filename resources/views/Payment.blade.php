@@ -10,7 +10,7 @@
                         Order Number : <strong>{{$order->order_number}}</strong> <br/>
                         Order Number : <strong>{{$order->table_number}}</strong>
                         </div> 
-                    </div>
+                    </div> 
                     
                     <table class="table table-hover">
                             <thead>

@@ -133,7 +133,7 @@ class ItemsController extends Controller
     public function ApiAllItems()
     {
         $all_items = Item::all();
-        // return view('Crud.Orders.AllItems', compact('all_items'));
+        return view('AllItems', compact('all_items'));
 
         return response()->json($all_items);
     }
@@ -141,7 +141,7 @@ class ItemsController extends Controller
     public function ApiFoodItems()
     {
         $food = DB::table('items')->where('categorie', 'makanan')->get();
-        // return view('Crud.Orders.FoodItems', compact('food'));
+        return view('FoodItems', compact('food'));
 
         return response()->json($food);
     }
@@ -149,7 +149,7 @@ class ItemsController extends Controller
     public function ApiDrinkItems()
     {
         $drink = DB::table('items')->where('categorie', 'minuman')->get();
-        // return view('Crud.Orders.DrinkItems', compact('drink'));
+        return view('DrinkItems', compact('drink'));
         return response()->json($drink);
     }
 }

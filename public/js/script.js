@@ -14,7 +14,7 @@ function viewData() {
                 'total :' +
                 '<div class="total">' +
                 '</div>'
-            )
+            ) 
 
 
             // $('#tot').html(' Rp. ' + tot + ' ,- ');
@@ -79,6 +79,7 @@ function viewData() {
     });
 }
 
+//add to cart
 $(document).ready(function () {
 
     viewData();

@@ -13,8 +13,8 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/view_order', 'OrdersController@view');
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/', 'AppController');
 Route::get('/order_transaction', 'OrdersController@transaction')->name('order_transaction');
